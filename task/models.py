@@ -13,9 +13,9 @@ class Users(models.Model):
 
 
 class Profiles(models.Model):
-    user_id = models.ForeignKey(Users, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(Users, on_delete=models.CASCADE, null=True)
     nick = models.CharField(max_length=10)
-    # image = models.ImageField(default='default.jpg', upload_to='pictures')
+    image = models.ImageField(default='default.jpg', upload_to='pictures')
     email = models.EmailField(max_length=254)
 
     def __str__(self):
@@ -24,7 +24,7 @@ class Profiles(models.Model):
 
 class ToDoLists(models.Model):
     name = models.CharField(max_length=50)
-    user_id = models.ForeignKey(Users, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(Users, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.name
@@ -43,7 +43,7 @@ class Task(models.Model):
     description = models.TextField()
     deadline = models.DateTimeField()
     #Zmienić na oddzielną tabelkę statusów
-    status = models.TextField(Status.name)
+    status = models.ForeignKey(Status, on_delete=models.CASCADE, null=True)
     finished = models.BooleanField(null=True)
 
     #wiedzieć kto i o której dodał
