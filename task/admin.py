@@ -1,10 +1,10 @@
 from django.contrib import admin
-from task.models import Task, Users, ToDoLists, Profiles, Status
+from task.models import Task, User, ToDoList, Profile, Status
 
-admin.site.register(Users)
-admin.site.register(ToDoLists)
+admin.site.register(User)
+admin.site.register(ToDoList)
 admin.site.register(Task)
-admin.site.register(Profiles)
+admin.site.register(Profile)
 admin.site.register(Status)
 
 
