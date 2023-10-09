@@ -12,4 +12,4 @@ class LoginViewCustom(LoginView):
 class SignUpView(CreateView):
     template_name = 'create_account.html'
     form_class = UserCreationFormCustom
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('login')
