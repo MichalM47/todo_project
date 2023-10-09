@@ -41,7 +41,7 @@ INSTALLED_APPS = [
 
 INSTALLED_EXTENSIONS = [
     'task.apps.TaskConfig',
-    'account.apps.AccountConfig'
+    'account.apps.AccountConfig',
 
 ]
 
