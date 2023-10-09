@@ -1,30 +1,31 @@
 from django.db import models
+from account.models import Profile
 
 # Create your models here.
 
 
-class User(models.Model):
-    # user_id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=50)
-    surname = models.CharField(max_length=50)
+# class User(models.Model):
+#     # user_id = models.AutoField(primary_key=True)
+#     name = models.CharField(max_length=50)
+#     surname = models.CharField(max_length=50)
+#
+#     def __str__(self):
+#         return f'{self.name} {self.surname}'
 
-    def __str__(self):
-        return f'{self.name} {self.surname}'
 
-
-class Profile(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-    nick = models.CharField(max_length=10)
-    image = models.ImageField(default='default.jpg', upload_to='pictures')
-    email = models.EmailField(max_length=254)
-
-    def __str__(self):
-        return self.nick
+# class Profile(models.Model):
+#     user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+#     nick = models.CharField(max_length=10)
+#     image = models.ImageField(default='default.jpg', upload_to='pictures')
+#     email = models.EmailField(max_length=254)
+#
+#     def __str__(self):
+#         return self.nick
 
 
 class ToDoList(models.Model):
     name = models.CharField(max_length=50)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    user_id = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.name
