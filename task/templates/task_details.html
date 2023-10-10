@@ -1,14 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h2> To do list </h2>
+    <h2> Tasks </h2>
     <ul>
-        {% for list in todolist %}
+        {% for detail in details %}
+        {% if detail.list_id_id == 1 %}
+
+
             <li>
-           {{ forloop.counter }} {{ list.name }}
+           {{ detail.list_id }}
 
                 <div class="my-2"></div>
 
             </li>
+
+        {% endif %}
         {% endfor %}
 
 
@@ -16,5 +21,5 @@
 
 
 
-
 {% endblock %}
+
