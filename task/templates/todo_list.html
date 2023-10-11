@@ -3,12 +3,14 @@
     <h2> To do list </h2>
     <ul>
         {% for list in todolist %}
+        {% if list.user_id_id == user.id %}
             <li>
-           {{ forloop.counter }} {{ list.name }}
+           {{ forloop.counter }} <a href="{% url 'tasks_list' %}">{{list.name }}</a>
 
                 <div class="my-2"></div>
 
             </li>
+        {% endif %}
         {% endfor %}
 
 
