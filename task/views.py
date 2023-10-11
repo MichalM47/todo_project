@@ -18,3 +18,8 @@ class DetailsTemplateView(TemplateView):
     extra_context = {'details': Task.objects.all()}
 
 
+class MainTemplateView(TemplateView):
+    template_name = 'main.html'
+
+
+

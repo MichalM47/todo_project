@@ -24,6 +24,25 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
+            {% if user.is_authenticated %}
+
+              <a class="nav-item nav-link active"> Logged as: {{ user }} </a>
+
+
+
+              <button type="submit" value="Submit" class="btn btn-danger">Logout</button>
+
+
+                  {% else  %}
+                  <a class="nav-item nav-link active"> Guest </a>
+                  <a class="nav-item nav-link active" href="{% url 'login' %}">
+                  Log in
+                  </a>
+                  <a class="nav-item nav-link active" href="{% url 'sign_up' %}">
+              Sign-up
+            </a>
+
+              {% endif %}
             <a class="nav-item nav-link active" href="{% url 'list' %}">
               LISTS
             </a>
