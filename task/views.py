@@ -43,7 +43,7 @@ class TasksListView(View):
 class DetailListView(View):
 
     def get(self, request, task_id):
-        print("aaa")
+        # print("aaa")
         details_list = Task.objects.filter(id=task_id).values_list('description', 'status', 'deadline', 'added')
         status = Status.objects.all().values_list('id','name')
 
