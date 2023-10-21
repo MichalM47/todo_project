@@ -5,7 +5,7 @@
         {% for list in todolist %}
         {% if list.user_id_id == user.id %}
             <li>
-           {{ forloop.counter }} <a href="{% url 'tasks_list' %}">{{list.name }}</a>
+            <a href="{% url 'tasks_list' %}">{{list.name }}</a>
 
                 <div class="my-2"></div>
 

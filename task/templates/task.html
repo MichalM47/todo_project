@@ -3,9 +3,9 @@
     <h2> Tasks </h2>
     <ul>
         {% for task in taskslist %}
-        {% if task.list_id_id == user.id %}
+        {% if task.list_id_id == list_id %}
             <li>
-           {{ forloop.counter }} <a href="{% url 'details' %}">{{task.name }}</a>
+            <a href="{% url 'details' %}" task.name >{{task.name }}</a>
 
                 <div class="my-2"></div>
 

@@ -10,7 +10,7 @@ class UserCreationFormCustom(UserCreationForm):
         fields = ['first_name', 'last_name', 'username']
 
     nick = forms.CharField(label='Enter nickname', widget=forms.Textarea, min_length=2, max_length=10)
-    biography = forms.CharField(label='Tell us your story with movies', widget=forms.Textarea, min_length=5)
+    biography = forms.CharField(label='Tell us your story', widget=forms.Textarea, min_length=5)
 
     @atomic
     def save(self, commit=True):
