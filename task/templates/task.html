@@ -2,16 +2,15 @@
 {% block content %}
     <h2> Tasks </h2>
     <ul>
-        {% for task in taskslist %}
-        {% if task.list_id_id == list_id %}
+        {% for task in tasks %}
             <li>
-            <a href="{% url 'details' %}" task.name >{{task.name }}</a>
+            <a href="{% url 'details' %}" >{{task.0}}</a>
 
                 <div class="my-2"></div>
 
             </li>
 
-        {% endif %}
+
         {% endfor %}
 
 
