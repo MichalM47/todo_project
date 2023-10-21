@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse
 from django.views import View
 from django.views.generic import TemplateView
-from task.models import (ToDoList, Task)
+from task.models import (ToDoList, Task, Status)
 
 
 class ToDoListTemplateView(TemplateView):
@@ -44,9 +44,10 @@ class DetailListView(View):
 
     def get(self, request, task_id):
         print("aaa")
-        details_list = Task.objects.filter(id=task_id).values_list('name')
+        details_list = Task.objects.filter(id=task_id).values_list('description', 'status', 'deadline', 'added')
+        status = Status.objects.all().values_list('id','name')
 
-        return render(request, template_name='task_details.html', context={'details':details_list})
+        return render(request, template_name='task_details.html', context={'details':details_list, 'stat':status})
         # return HttpResponse(f'Hello {str(details_list)}')
 
 
