@@ -1,5 +1,5 @@
 from django.db import models
-from account.models import Profile
+from account.models import Profile, User
 
 # Create your models here.
 
@@ -25,7 +25,7 @@ from account.models import Profile
 
 class ToDoList(models.Model):
     name = models.CharField(max_length=50)
-    user_id = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.name
