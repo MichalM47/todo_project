@@ -3,7 +3,8 @@ from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import TemplateView, FormView
 from task.models import (ToDoList, Task, Status)
-from task.forms import ListForm
+from task.forms import ListForm,ListForm2
+
 
 
 class ToDoListTemplateView(TemplateView):
@@ -68,13 +69,6 @@ class ListCreateView(FormView):
             name=cleaned_data['name'],
             user_id= self.request.user
             )
-    #     # Task.objects.create(
-    #     #     title=cleaned_data['title'],
-    #     #     genre=cleaned_data['genre'],
-    #     #     rating=cleaned_data['rating'],
-    #     #     released=cleaned_data['released'],
-    #     #     description=cleaned_data['description']
-    #     # )
         return result
 
     # def get_form_kwargs(self):
@@ -82,6 +76,31 @@ class ListCreateView(FormView):
     #     user = self.request.user
     #     kwargs["initial"]
 
+
+class TaskCreateView(FormView):
+
+    template_name = 'form_task.html'
+    form_class = ListForm2
+    success_url = reverse_lazy('list')
+
+    def get_form_kwargs(self):
+
+        kwargs = super(TaskCreateView, self).get_form_kwargs()
+        kwargs['request'] = self.request
+        return kwargs
+
+    def form_valid(self, form):
+        result = super().form_valid(form)
+        cleaned_data = form.cleaned_data
+        Task.objects.create(
+            name=cleaned_data['name'],
+            list_id=cleaned_data['list_id'],
+            description=cleaned_data['description'],
+            deadline=cleaned_data['deadline'],
+            status=cleaned_data['status'],
+            # added=cleaned_data['added'],
+            )
+        return result
 
 
 

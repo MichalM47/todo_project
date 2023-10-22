@@ -1,5 +1,6 @@
 from django import forms
 from account.models import Profile, User
+from task.models import Status, ToDoList
 
 
 class ListForm(forms.Form):
@@ -28,4 +29,20 @@ class ListForm(forms.Form):
     #         )
     #
     #     return result
+
+class ListForm2(forms.Form):
+
+    name = forms.CharField(max_length=50)
+    list_id = forms.ModelChoiceField(queryset=None)
+    description = forms.CharField(widget=forms.Textarea, required=False)
+    deadline = forms.DateTimeField()
+    status = forms.ModelChoiceField(queryset=Status.objects)
+    # added = forms.DateTimeField(auto_now_add=True)
+
+    def __init__(self, *args, **kwargs):
+        self.request = kwargs.pop('request')
+        super(ListForm2,self).__init__(*args, **kwargs)
+        self.fields['list_id'].queryset = ToDoList.objects.filter(user_id_id=self.request.user)
+        for visible in self.visible_fields():
+            visible.field.widget.attrs['class'] = 'form-control'
 
