@@ -9,8 +9,17 @@
 
                 <div class="my-2"></div>
 
+            <div class="btn-group">
 
-            </li>
+
+                    <a href="{% url 'list_delete' list.id %}" class="btn btn-danger"> DELETE</a>
+
+                </div>
+
+
+
+
+            </li> <br/>
 
         {% endif %}
         {% endfor %}

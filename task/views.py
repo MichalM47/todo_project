@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import TemplateView, FormView, DeleteView
+from django.views.generic import TemplateView, FormView, DeleteView, UpdateView
 from task.models import (ToDoList, Task, Status)
 from task.forms import ListForm,ListForm2
 
@@ -106,6 +106,19 @@ class TaskCreateView(FormView):
 class TaskDeleteView(DeleteView):
     template_name = "confirm_delete.html"
     model = Task
+    success_url = reverse_lazy('list')
+
+
+class ListDeleteView(DeleteView):
+    template_name = "confirm_delete.html"
+    model = ToDoList
+    success_url = reverse_lazy('list')
+
+
+class TaskUpdateView(UpdateView):
+    template_name = 'form_task.html'
+    model = Task
+    form_class = ListForm2
     success_url = reverse_lazy('list')
 
 
