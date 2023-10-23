@@ -6,7 +6,6 @@ from task.models import (ToDoList, Task, Status)
 from task.forms import ListForm,ListForm2
 
 
-
 class ToDoListTemplateView(TemplateView):
     template_name = 'todo_list.html'
     extra_context = {'todolist': ToDoList.objects.all()}
