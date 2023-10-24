@@ -21,3 +21,9 @@ class UserCreationFormCustom(UserCreationForm):
         if commit:
             profile.save()
         return result
+
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['nick', 'email', 'image']
