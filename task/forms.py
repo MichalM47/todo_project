@@ -41,7 +41,7 @@ class ListForm2(forms.Form):
 
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop('request')
-        super(ListForm2,self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.fields['list_id'].queryset = ToDoList.objects.filter(user_id_id=self.request.user)
         for visible in self.visible_fields():
             visible.field.widget.attrs['class'] = 'form-control'

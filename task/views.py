@@ -120,6 +120,12 @@ class TaskUpdateView(UpdateView):
     form_class = ListForm2
     success_url = reverse_lazy('list')
 
+    def get_form_kwargs(self):
+
+        kwargs = super(TaskUpdateView, self).get_form_kwargs()
+        kwargs['request'] = self.request
+        return kwargs
+
 
 
 

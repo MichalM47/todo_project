@@ -16,7 +16,7 @@ from account.models import Profile, User
 # class Profile(models.Model):
 #     user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 #     nick = models.CharField(max_length=10)
-#     image = models.ImageField(default='default.jpg', upload_to='pictures')
+#     image = models.ImageField(default='pic.jpg', upload_to='profile_pics')
 #     email = models.EmailField(max_length=254)
 #
 #     def __str__(self):
