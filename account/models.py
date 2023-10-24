@@ -10,6 +10,6 @@ class Profile(models.Model):
     biography = models.TextField(max_length=1000)
 
     def __str__(self):
-        return f'{self.user.name} Profile'
+        return f'{self.user.username} Profile'
 
 

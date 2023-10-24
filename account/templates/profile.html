@@ -2,10 +2,12 @@
 {% load crispy_forms_tags %}
 {% block content %}
     <div class="content-section">
-        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" width="200"
+     height="200">
         <div class="media-body">
             <h2 class="account-heading">{{ user.username }}</h2>
-            <p class="text-secondary">{{ user.email }}</p>
+            <p class="text-secondary">{{ user.profile.nick }}</p>
+            <p class="text-secondary">{{ user.profile.email }}</p>
         </div>
     </div>
 {% endblock %}
