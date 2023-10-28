@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+
+<!--<label for="form.name.id_for_label">Title:</label>-->
+<!--        {{form.name}}-->
+<!-- <label for="form.list_id.id_for_label">List ID:</label>-->
+<!--        {{form.list_id}}-->
+<!--  <label for="form.description.id_for_label">Description:</label>-->
+<!--        {{form.description}}-->
+<!--   <label for="form.deadline.id__for_label">Deadline:</label>-->
+<!--        {{form.deadline}}-->
+<!--  <label for="form.status.id_for_label">Status:</label>-->
+<!--        {{form.status}}-->
+
+
+{{form.as_p}}
+
+
+
+
+
+    <input type="submit" value="Submit" class="btn btn-primary">
+</form>
+
+
+{% endblock %}
