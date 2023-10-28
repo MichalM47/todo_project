@@ -9,7 +9,7 @@
              {% elif task.2 == 5 %}
             <a href="{% url 'details' task.0 %}" style="color:blue" > {{task.1}}  - In progress </a>
             {% elif task.2 == 4 %}
-            <a href="{% url 'details' task.0 %}" style="color:green" > {{task.1}}  - Done </a>
+            <a href="{% url 'details' task.0 %}" style="color:green" > <s>{{task.1}}</s>  - Done </a>
                 {% endif %}
 
                 <div class="my-2"></div>
