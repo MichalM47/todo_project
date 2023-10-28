@@ -37,6 +37,7 @@ class ListForm2(forms.ModelForm):
         fields = '__all__'
         labels = {
             'name': 'Title',
+            'list_id': 'List name',
         }
 
     # def save(self, commit=True):

@@ -36,7 +36,7 @@ class TasksListView(View):
 
     @staticmethod
     def get(request, list_id):
-        tasks_list = Task.objects.filter(list_id_id=list_id).values_list('id','name')
+        tasks_list = Task.objects.filter(list_id_id=list_id).values_list('id','name','status')
         # print(tasks_list)
 
         # return HttpResponse(f'Hello {str(tasks_list)}')

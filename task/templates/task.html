@@ -4,7 +4,13 @@
     <ul>
         {% for task in tasks %}
             <li>
-            <a href="{% url 'details' task.0 %}" > {{task.1}} </a>
+             {% if task.2 == 6 %}
+            <a href="{% url 'details' task.0 %}" style="color:red" > {{task.1}} - Not started </a>
+             {% elif task.2 == 5 %}
+            <a href="{% url 'details' task.0 %}" style="color:blue" > {{task.1}}  - In progress </a>
+            {% elif task.2 == 4 %}
+            <a href="{% url 'details' task.0 %}" style="color:green" > {{task.1}}  - Done </a>
+                {% endif %}
 
                 <div class="my-2"></div>
             <div class="btn-group">
