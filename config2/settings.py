@@ -39,8 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
-    # 'crispy_bootstrap4',
+    'crispy_bootstrap4',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 INSTALLED_EXTENSIONS = [
     'task.apps.TaskConfig',
@@ -50,7 +52,7 @@ INSTALLED_EXTENSIONS = [
 
 INSTALLED_APPS += INSTALLED_EXTENSIONS
 
-CRISPY_TEMPLATE_PACK = 'uni_form'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
