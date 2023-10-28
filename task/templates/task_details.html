@@ -6,14 +6,17 @@
 
 
             <li>
-           {{ detail.0 }}<br/>
+           <b>{{ detail.0 }}</b>
                 {% for stats in stat %}
                 {% if stats.0 == detail.1 %}
                     {{ stats.1}}<br/>
                 {% endif %}
                 {% endfor %}
-           <p> Deadline:</p> {{ detail.2 }}<br/>
-           <p> Added: </p> {{ detail.3 }}<br/>
+                <p></p>
+           <p><b> Deadline: </b> {{ detail.2 }} </p>
+           <p><b> Added: </b> {{ detail.3 }} </p>
+           <p><b> Description : </b></p> {{ detail.4 }}
+
 
 
 

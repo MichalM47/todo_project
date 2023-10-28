@@ -48,7 +48,7 @@ class DetailListView(View):
     @staticmethod
     def get(request, task_id):
         # print("aaa")
-        details_list = Task.objects.filter(id=task_id).values_list('description', 'status', 'deadline', 'added')
+        details_list = Task.objects.filter(id=task_id).values_list('name','status', 'deadline', 'added', 'description')
         status = Status.objects.all().values_list('id','name')
 
         return render(request, template_name='task_details.html', context={'details':details_list, 'stat':status})
