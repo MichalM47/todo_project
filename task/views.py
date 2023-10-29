@@ -20,9 +20,7 @@ class TasksListView(View):
     @staticmethod
     def get(request, list_id):
         tasks_list = Task.objects.filter(list_id_id=list_id).values_list('id','name','status')
-        # print(tasks_list)
 
-        # return HttpResponse(f'Hello {str(tasks_list)}')
         return render(request, template_name='task.html', context={'tasks':tasks_list})
 
 
@@ -73,7 +71,6 @@ class TaskCreateView(FormView):
             description=cleaned_data['description'],
             deadline=cleaned_data['deadline'],
             status=cleaned_data['status'],
-            # added=cleaned_data['added'],
             )
         return result
 
