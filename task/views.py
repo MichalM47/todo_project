@@ -11,26 +11,9 @@ class ToDoListTemplateView(TemplateView):
     extra_context = {'todolist': ToDoList.objects.all()}
 
 
-# class TasksTemplateView(TemplateView):
-#     template_name = 'task.html'
-#     extra_context = {'taskslist': Task.objects.all()}
-
-
-# class DetailsTemplateView(TemplateView):
-#     template_name = 'task_details.html'
-#     extra_context = {'details': Task.objects.all()}
-
-
 class MainTemplateView(TemplateView):
     template_name = 'main.html'
 
-
-# class TasksListView(View):
-#
-#     def get(self, request, list_id):
-#         to_do_list = ToDoList.objects.filter(id=list_id)
-#
-#         return HttpResponse(str(to_do_list))
 
 class TasksListView(View):
 
@@ -47,12 +30,10 @@ class DetailListView(View):
 
     @staticmethod
     def get(request, task_id):
-        # print("aaa")
         details_list = Task.objects.filter(id=task_id).values_list('name','status', 'deadline', 'added', 'description')
         status = Status.objects.all().values_list('id','name')
 
         return render(request, template_name='task_details.html', context={'details':details_list, 'stat':status})
-        # return HttpResponse(f'Hello {str(details_list)}')
 
 
 class ListCreateView(FormView):
@@ -69,11 +50,6 @@ class ListCreateView(FormView):
             user_id= self.request.user
             )
         return result
-
-    # def get_form_kwargs(self):
-    #     kwargs=super().get_form_kwargs()
-    #     user = self.request.user
-    #     kwargs["initial"]
 
 
 class TaskCreateView(FormView):
