@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2> Tasks </h2>
+    <ul>
+        {% for task in tasks %}
+            <li>
+             {% if task.2 == 6 %}
+            <a href="{% url 'details' task.0 %}" style="color:red" > {{task.1}} - Not started </a>
+             {% elif task.2 == 5 %}
+            <a href="{% url 'details' task.0 %}" style="color:blue" > {{task.1}}  - In progress </a>
+            {% elif task.2 == 4 %}
+            <a href="{% url 'details' task.0 %}" style="color:green" > {{task.1}}  - Done </a>
+                {% endif %}
+
+                <div class="my-2"></div>
+            <div class="btn-group">
+
+                    <a href="{% url 'task_update' task.0 %}" class="btn btn-primary mr-2"> EDIT</a>
+                    <a href="{% url 'task_delete' task.0 %}" class="btn btn-danger"> DELETE</a>
+
+                </div>
+
+            </li>
+
+
+        {% endfor %}
+
+
+    </ul>
+
+
+
+
+{% endblock %}

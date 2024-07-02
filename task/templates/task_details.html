@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2> Details </h2>
+    <ul>
+        {% for detail in details %}
+
+
+            <li>
+           <b>{{ detail.0 }}</b>
+                {% for stats in stat %}
+                {% if stats.0 == detail.1 %}
+                    {{ stats.1}}<br/>
+                {% endif %}
+                {% endfor %}
+                <p></p>
+           <p><b> Deadline: </b> {{ detail.2 }} </p>
+           <p><b> Added: </b> {{ detail.3 }} </p>
+           <p><b> Description : </b></p> {{ detail.4 }}
+
+
+
+
+
+                <div class="my-2"></div>
+
+            <div class="btn-group">
+
+
+{#                    <a href="{% url 'task_delete' task.0 %}" class="btn btn-danger"> DELETE</a>#}
+
+                </div>
+
+            </li>
+
+
+        {% endfor %}
+
+
+    </ul>
+
+
+
+{% endblock %}
